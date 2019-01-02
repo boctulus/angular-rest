@@ -15,13 +15,13 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    sessionStorage.setItem('tokenJwt', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDYzOTk4MDUsImV4cCI6MTU0NjY5OTgwNSwiZGF0YSI6eyJpZCI6IjQiLCJ1c2VybmFtZSI6InBib3p6b2xvIn19.Bszs68bg2oDQt82dwuEe_CwghlQOVUCUrKUxx_RPMRw');
+    sessionStorage.setItem('tokenJwt', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDY0NTEzNzAsImV4cCI6MTU0Njc1MTM3MCwiZGF0YSI6eyJpZCI6IjQiLCJ1c2VybmFtZSI6InBib3p6b2xvIn19.gRIKtW9f3c2CNcwIRfqSZRqmjwtjonxPNTep4OSXsR4');
 
     // this.onList();
-    // this.onGet(67);
+    this.onGet(67);
     // this.onDelete(64);
     // this.onCreate({ "name": "Vodka", "description": "from Russia", "size": "1L", "cost": 250 });
-    this.onUpdate(61, { "name": "Juice!", "description": "Delicious!!!!!", "size": "1L", "cost": 35 });
+    // this.onUpdate(61, { "name": "Juice!", "description": "Delicious!!!!!", "size": "1L", "cost": 35 });
   }
 
 /**
@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
   }
 
   onDelete (id) {
-    this.http.delete<any>(this.base_url + '/' + id.toString(), this.getHeaders())
+    return this.http.delete<any>(this.base_url + '/' + id.toString(), this.getHeaders())
     .pipe(
       catchError(this.handleError('delete', []))
     )
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
 
   onUpdate (id, data) {
     delete data.id;
-    this.http.put<any>(this.base_url + '/' + id.toString(), data, this.getHeaders() )
+    return this.http.put<any>(this.base_url + '/' + id.toString(), data, this.getHeaders() )
     .pipe(
       catchError(this.handleError('update', []))
     )
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
   }
 
   onCreate (data) {
-    this.http.post<any>(this.base_url, data, this.getHeaders() )
+    return this.http.post<any>(this.base_url, data, this.getHeaders() )
     .pipe(
       catchError(this.handleError('creation', []))
     )
