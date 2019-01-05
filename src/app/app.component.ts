@@ -10,18 +10,17 @@ import { of, throwError, Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'pruebas';
-  // http://localhost/SimpleRestFul/api/products
   private base_url = 'http://localhost/SimpleRestFul/api/products';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    sessionStorage.setItem('tokenJwt', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDY0NTEzNzAsImV4cCI6MTU0Njc1MTM3MCwiZGF0YSI6eyJpZCI6IjQiLCJ1c2VybmFtZSI6InBib3p6b2xvIn19.gRIKtW9f3c2CNcwIRfqSZRqmjwtjonxPNTep4OSXsR4');
+    sessionStorage.setItem('tokenJwt', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDY0ODA5MDQsImV4cCI6MTU0Njc4MDkwNCwiZGF0YSI6eyJpZCI6IjQiLCJ1c2VybmFtZSI6InBib3p6b2xvIn19.ZCJGTdUtRQ7Ce8by4pxXTTwyAUpR-4AEcfRq83_RF-o');
 
-    // this.onList();
-    this.onGet(67);
+    this.onList();
+    this.onGet(81);
     // this.onDelete(64);
     // this.onCreate({ "name": "Vodka", "description": "from Russia", "size": "1L", "cost": 250 });
-    // this.onUpdate(61, { "name": "Juice!", "description": "Delicious!!!!!", "size": "1L", "cost": 35 });
+    // this.onUpdate(67, { "name": "Juice!", "description": "Delicious!!!!!", "size": "1L", "cost": 35 });
   }
 
 /**
